@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.List;
 @Service
-public class ClassicRockPaperScissorsFactoryProvider implements GameFactoryProvider {
+public class ClassicRockPaperScissorsFactory implements RockPaperScissorsFactoryProvider {
 
     private final GamePickFactoryProvider gamePickFactoryProvider = new RockPaperScissorsClassicPicksFactory();
 
@@ -21,7 +21,7 @@ public class ClassicRockPaperScissorsFactoryProvider implements GameFactoryProvi
 
     @Override
 
-    public Game createGame(List<Player> players) {
+    public Game createRockScissorsTypeGame(List<Player> players) {
         if(players.size() != 2){
             throw new IllegalArgumentException("The only acceptable number of players for this implementation of the game is 2.");
         }

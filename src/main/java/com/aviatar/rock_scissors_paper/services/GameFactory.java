@@ -5,6 +5,7 @@ import com.aviatar.rock_scissors_paper.domain.Player;
 
 import java.util.List;
 
-public interface GameFactoryProvider {
+public interface GameFactory {
+
     public Game createGame(List<Player> players);
 }
