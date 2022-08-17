@@ -1,6 +1,7 @@
 package com.aviatar.rock_scissors_paper.domain.game_implementations;
 
 import com.aviatar.rock_scissors_paper.domain.model.Game;
+import com.aviatar.rock_scissors_paper.domain.model.GameType;
 import com.aviatar.rock_scissors_paper.domain.model.Player;
 import com.aviatar.rock_scissors_paper.domain.GameFactory;
 import lombok.NonNull;
@@ -18,6 +19,7 @@ public class RockPaperScissorsGameFactory implements GameFactory {
     public Game createGame(List<Player> players){
         return gameFactoryProvider.createRockScissorsTypeGame(players);
     }
+
 
 }
 

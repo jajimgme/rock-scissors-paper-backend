@@ -1,8 +1,10 @@
 package com.aviatar.rock_scissors_paper.services;
 
 import com.aviatar.rock_scissors_paper.domain.model.Game;
+import com.aviatar.rock_scissors_paper.domain.model.GameType;
 import com.aviatar.rock_scissors_paper.dto.CreateGameDto;
 import com.aviatar.rock_scissors_paper.domain.game_implementations.RockPaperScissorsGameFactory;
+import com.aviatar.rock_scissors_paper.dto.GameDto;
 import jdk.jshell.spi.ExecutionControl;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,10 @@ public class GameService {
             throw new ExecutionControl.NotImplementedException("There are not any other games implemented yet.");
         }
 
+
+    }
+
+    public GameDto getGameDescription(GameType gameType){
 
     }
 }
