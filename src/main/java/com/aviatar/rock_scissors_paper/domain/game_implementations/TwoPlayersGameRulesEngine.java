@@ -1,10 +1,11 @@
-package com.aviatar.rock_scissors_paper.services;
+package com.aviatar.rock_scissors_paper.domain.game_implementations;
 
-import com.aviatar.rock_scissors_paper.domain.GameResult;
-import com.aviatar.rock_scissors_paper.domain.GameResultTypes;
-import com.aviatar.rock_scissors_paper.domain.Pick;
+import com.aviatar.rock_scissors_paper.domain.model.GameResult;
+import com.aviatar.rock_scissors_paper.domain.model.GameResultTypes;
+import com.aviatar.rock_scissors_paper.domain.model.Pick;
+import com.aviatar.rock_scissors_paper.domain.RulesEngine;
 
-public class TwoPlayersGameRules implements GameRuleSet {
+public class TwoPlayersGameRulesEngine implements RulesEngine {
 
     public GameResult Play(Pick player1pick, Pick player2pick) {
         if (player1pick.getPick().type == player2pick.getPick().type) {

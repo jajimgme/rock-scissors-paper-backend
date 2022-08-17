@@ -1,8 +1,8 @@
 package com.aviatar.rock_scissors_paper.services;
 
-import com.aviatar.rock_scissors_paper.domain.Game;
+import com.aviatar.rock_scissors_paper.domain.model.Game;
 import com.aviatar.rock_scissors_paper.dto.CreateGameDto;
-import com.aviatar.rock_scissors_paper.model.GameType;
+import com.aviatar.rock_scissors_paper.domain.game_implementations.RockPaperScissorsGameFactory;
 import jdk.jshell.spi.ExecutionControl;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class GameService {
     }
 
     public Game createGame(CreateGameDto createGame) throws ExecutionControl.NotImplementedException {
-        if(createGame.gameType.getName() == "Classic rock, scissors paper game" ){
+        if(createGame.gameType.getName() == "Classic rock scissors paper game" ){
             return this.rockPaperScissorsGameFactory.createGame(createGame.playerList);
         } else
         {

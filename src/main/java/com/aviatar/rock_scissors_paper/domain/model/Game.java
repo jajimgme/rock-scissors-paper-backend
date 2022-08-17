@@ -1,16 +1,15 @@
-package com.aviatar.rock_scissors_paper.domain;
+package com.aviatar.rock_scissors_paper.domain.model;
 
-import com.aviatar.rock_scissors_paper.services.GameRuleSet;
+import com.aviatar.rock_scissors_paper.domain.RulesEngine;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @AllArgsConstructor
 @Data
 public class Game {
-    public GameRuleSet gameRuleSet;
+    public RulesEngine gameRuleSet;
     public List<GamePick> gamePicks;
     public List<Player> players;
 }

@@ -1,8 +1,7 @@
-package com.aviatar.rock_scissors_paper.services;
+package com.aviatar.rock_scissors_paper.domain.game_implementations;
 
-import com.aviatar.rock_scissors_paper.domain.GamePick;
-import com.aviatar.rock_scissors_paper.domain.GamePickFactoryProvider;
-import com.aviatar.rock_scissors_paper.domain.PossiblePicksType;
+import com.aviatar.rock_scissors_paper.domain.model.GamePick;
+import com.aviatar.rock_scissors_paper.domain.model.PossiblePicksType;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

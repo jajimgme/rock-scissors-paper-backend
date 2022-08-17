@@ -1,9 +1,9 @@
-package com.aviatar.rock_scissors_paper.services;
+package com.aviatar.rock_scissors_paper.domain.game_implementations;
 
-import com.aviatar.rock_scissors_paper.domain.Game;
-import com.aviatar.rock_scissors_paper.domain.GamePick;
-import com.aviatar.rock_scissors_paper.domain.GamePickFactoryProvider;
-import com.aviatar.rock_scissors_paper.domain.Player;
+import com.aviatar.rock_scissors_paper.domain.model.Game;
+import com.aviatar.rock_scissors_paper.domain.model.GamePick;
+import com.aviatar.rock_scissors_paper.domain.model.Player;
+import com.aviatar.rock_scissors_paper.domain.RulesEngine;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -14,7 +14,7 @@ public class ClassicRockPaperScissorsFactory implements RockPaperScissorsFactory
     private final GamePickFactoryProvider gamePickFactoryProvider = new RockPaperScissorsClassicPicksFactory();
 
     public Game CreateTwoPlayersClassicGame(Player player1, Player player2) {
-        GameRuleSet gameRuleSet = new TwoPlayersGameRules();
+        RulesEngine gameRuleSet = new TwoPlayersGameRulesEngine();
         List<GamePick> gamePicks = this.gamePickFactoryProvider.createGamePicks();
         return new Game(gameRuleSet, gamePicks, Arrays.asList(player1, player2));
     }

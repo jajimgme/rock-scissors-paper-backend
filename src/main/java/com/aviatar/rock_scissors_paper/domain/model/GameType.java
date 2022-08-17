@@ -1,4 +1,4 @@
-package com.aviatar.rock_scissors_paper.model;
+package com.aviatar.rock_scissors_paper.domain.model;
 
 import lombok.Data;
 
