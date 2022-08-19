@@ -3,7 +3,6 @@ package com.aviatar.rock_scissors_paper.services;
 import com.aviatar.rock_scissors_paper.domain.GameEngine;
 import com.aviatar.rock_scissors_paper.domain.game_implementations.ai.GameAI;
 import com.aviatar.rock_scissors_paper.domain.game_implementations.ai.RockPaperScissorsAI;
-import com.aviatar.rock_scissors_paper.domain.game_implementations.game_engine.RulesChecker;
 import com.aviatar.rock_scissors_paper.domain.game_implementations.game_engine.TwoPlayersGameRulesEngine;
 import com.aviatar.rock_scissors_paper.domain.game_implementations.game_picks.RockPaperScissorsClassicPicksFactory;
 import com.aviatar.rock_scissors_paper.domain.model.*;
@@ -22,7 +21,7 @@ public class RockPaperScissorsGameService extends GameService {
         this.rockPaperScissorsClassicPicksFactory = rockPaperScissorsClassicPicksFactory;
         List<GamePick> gamePicks = this.rockPaperScissorsClassicPicksFactory.getGamePicks();
         rockPaperScissorsAI = new RockPaperScissorsAI(gamePicks);
-        GameEngine gameEngine = new TwoPlayersGameRulesEngine(new RulesChecker(gamePicks));
+        GameEngine gameEngine = new TwoPlayersGameRulesEngine(gamePicks);
         super.setGameEngine(gameEngine);
 
 

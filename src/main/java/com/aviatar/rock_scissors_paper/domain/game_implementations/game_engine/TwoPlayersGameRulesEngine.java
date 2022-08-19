@@ -6,15 +6,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class TwoPlayersGameRulesEngine implements GameEngine {
 
+    private final Map<PossiblePicksType, HashSet<PossiblePicksType>> possiblePicksRules;
 
-    private RulesChecker rulesChecker;
+    public TwoPlayersGameRulesEngine(List<GamePick> possiblePicks){
 
-    public TwoPlayersGameRulesEngine(RulesChecker rulesChecker){
-
-        this.rulesChecker = rulesChecker;
+        possiblePicksRules = possiblePicks.stream().collect(Collectors.toMap(GamePick::getType, g -> g.getDefeats()));
     }
     public GameResult play(Play play) {
         Pick player1Pick = play.getPicks().get(0);
@@ -25,10 +28,19 @@ public class TwoPlayersGameRulesEngine implements GameEngine {
         if (player1pickType == player2pickType) {
             return new GameResult(GameResultTypes.TIE);
         }
-        if (rulesChecker.defeats(player1pickType, player2pickType)) {
+        if (defeats(player1pickType, player2pickType)) {
             return new GameResult(GameResultTypes.PLAYER_WINS, player1Pick.getPlayer());
         } else {
             return new GameResult(GameResultTypes.PLAYER_WINS, player2Pick.getPlayer());
         }
+
+    }
+    private boolean defeats(PossiblePicksType pick, PossiblePicksType pick2) {
+        if(!possiblePicksRules.containsKey(pick)){
+            throw new RuntimeException("That pick is not possible in this game!");
+        }
+
+        HashSet<PossiblePicksType> possiblePicksTypes = possiblePicksRules.get(pick);
+        return possiblePicksTypes.contains(pick2);
     }
 }
