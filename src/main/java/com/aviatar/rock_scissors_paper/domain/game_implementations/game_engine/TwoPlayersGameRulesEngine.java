@@ -2,9 +2,11 @@ package com.aviatar.rock_scissors_paper.domain.game_implementations.game_engine;
 
 import com.aviatar.rock_scissors_paper.domain.model.*;
 import com.aviatar.rock_scissors_paper.domain.GameEngine;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TwoPlayersGameRulesEngine implements GameEngine {
 
     public GameResult play(Play play) {

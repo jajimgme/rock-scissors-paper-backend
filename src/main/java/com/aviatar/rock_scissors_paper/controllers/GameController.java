@@ -36,7 +36,7 @@ public class GameController {
 ////        }
 
 //    }
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<GameDescription>> getAvailableGames(){
     return new ResponseEntity<>(gameService.getGames(), HttpStatus.OK);
     }

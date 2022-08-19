@@ -8,9 +8,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 @Service
-public class RockPaperScissorsClassicPicksFactory implements GamePickFactoryProvider {
-    @Override
-    public List<GamePick> createGamePicks() {
+public class RockPaperScissorsClassicPicksFactory  {
+    public List<GamePick> getGamePicks() {
         List<GamePick> possibleGamePicks = Arrays.asList(createPaper(), createRock(), createScissors());
         return possibleGamePicks;
     }
