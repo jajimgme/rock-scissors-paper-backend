@@ -14,7 +14,10 @@ public class GameRepository {
     List<GameDescription> games;
     public GameRepository(){
         GameDescription game = new GameDescription();
-        game.setGameType(new GameType("Classic picks rock paper scissors", 2));
+        game.setNumberOfPlayers(2);
+        game.setDescriptionOfTheRules("This is the classic instance of the rock, paper, scissors game.");
+        game.setGameType(new GameType(1,"Classic picks rock paper scissors"));
+        game.setPlayingEndpoint("/rock-paper-scissor/play");
         games = Arrays.asList(game);
     }
     public List<GameDescription> getAvailableGames(){

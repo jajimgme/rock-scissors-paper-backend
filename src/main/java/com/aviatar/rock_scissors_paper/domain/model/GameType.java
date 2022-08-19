@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GameType {
+    public int id;
     public String name;
-    public int NumberOfPlayers;
 }

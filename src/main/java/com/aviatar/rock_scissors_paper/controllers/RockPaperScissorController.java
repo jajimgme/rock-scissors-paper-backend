@@ -1,7 +1,6 @@
 package com.aviatar.rock_scissors_paper.controllers;
 
 import com.aviatar.rock_scissors_paper.domain.model.*;
-import com.aviatar.rock_scissors_paper.services.GameService;
 import com.aviatar.rock_scissors_paper.services.RockPaperScissorsGameService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
