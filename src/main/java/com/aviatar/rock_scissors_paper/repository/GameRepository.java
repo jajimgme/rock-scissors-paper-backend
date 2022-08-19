@@ -29,7 +29,7 @@ public class GameRepository {
     }
 
     private GameDescription findGame(GameType gameType){
-           Optional<GameDescription> first = this.games.stream().filter(g -> g.getGameType().getName().equals(gameType.getName())).findFirst();
+           Optional<GameDescription> first = this.games.stream().filter(g -> g.getGameType().getId()== gameType.getId()).findFirst();
            if(first.isPresent()){
                return first.get();
            } else {

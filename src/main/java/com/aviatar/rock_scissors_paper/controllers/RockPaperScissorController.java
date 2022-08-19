@@ -4,10 +4,7 @@ import com.aviatar.rock_scissors_paper.domain.model.*;
 import com.aviatar.rock_scissors_paper.services.RockPaperScissorsGameService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController()
 @RequestMapping(value = "/rock-paper-scissor", produces = {"application/json"})
@@ -24,7 +21,7 @@ public class RockPaperScissorController {
     }
 
     @PostMapping("/play")
-    public ResponseEntity<GameResult> play(Play p){
+    public ResponseEntity<GameResult> play(@RequestBody Play p){
         return new ResponseEntity<>(gameService.playGame(p), HttpStatus.OK);
     }
 
