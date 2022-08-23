@@ -16,7 +16,7 @@ public class LocalTestGameRepository implements GameRepository {
         GameDescription game = new GameDescription();
         game.setNumberOfPlayers(2);
         game.setDescriptionOfTheRules("This is the classic instance of the rock, paper, scissors game.");
-        game.setGameType(new GameType(1, "Classic picks rock paper scissors"));
+        game.setGameType(new GameType(1, "Classic picks rock, paper, scissors"));
         game.setPlayingEndpoint("/rock-paper-scissor/");
         games = Arrays.asList(game);
     }
