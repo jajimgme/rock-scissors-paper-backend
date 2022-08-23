@@ -7,9 +7,9 @@ import com.test.rock_scissors_paper.domain.game_implementations.game_engine.TwoP
 import com.test.rock_scissors_paper.domain.game_implementations.game_picks.RockPaperScissorsClassicPicksFactory;
 import com.test.rock_scissors_paper.domain.model.GameDescription;
 import com.test.rock_scissors_paper.domain.model.GamePick;
+import com.test.rock_scissors_paper.domain.model.GameType;
 import com.test.rock_scissors_paper.domain.model.RockPaperScissorsGameDescription;
 import com.test.rock_scissors_paper.repository.GameRepository;
-import com.test.rock_scissors_paper.domain.model.GameType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class RockPaperScissorsGameService extends GameService {
     private final GameAI rockPaperScissorsAI;
-    private RockPaperScissorsClassicPicksFactory rockPaperScissorsClassicPicksFactory;
+    private final RockPaperScissorsClassicPicksFactory rockPaperScissorsClassicPicksFactory;
 
     public RockPaperScissorsGameService(GameRepository gameRepository, RockPaperScissorsClassicPicksFactory rockPaperScissorsClassicPicksFactory) {
         super(gameRepository, null);
@@ -28,18 +28,18 @@ public class RockPaperScissorsGameService extends GameService {
         super.setGameEngine(gameEngine);
 
 
-
     }
+
     @Override
-    public RockPaperScissorsGameDescription getDescriptionOfGameType(GameType gameType){
-       GameDescription basicDescription = super.getDescriptionOfGameType(gameType);
-       RockPaperScissorsGameDescription detailed = new RockPaperScissorsGameDescription(basicDescription);
-       detailed.setAvailablePicks(rockPaperScissorsClassicPicksFactory.getGamePicks());
-       return detailed;
+    public RockPaperScissorsGameDescription getDescriptionOfGameType(GameType gameType) {
+        GameDescription basicDescription = super.getDescriptionOfGameType(gameType);
+        RockPaperScissorsGameDescription detailed = new RockPaperScissorsGameDescription(basicDescription);
+        detailed.setAvailablePicks(rockPaperScissorsClassicPicksFactory.getGamePicks());
+        return detailed;
 
     }
 
-    public GamePick getAIGamePick(){
+    public GamePick getAIGamePick() {
         return rockPaperScissorsAI.generatePick();
     }
 

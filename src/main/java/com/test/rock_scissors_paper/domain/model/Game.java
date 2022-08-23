@@ -13,7 +13,7 @@ public class Game {
     public List<GamePick> gamePicks;
     public List<Player> players;
 
-    public GameResult play(Play p){
+    public GameResult play(Play p) {
         return gameRuleSet.play(p);
     }
 }

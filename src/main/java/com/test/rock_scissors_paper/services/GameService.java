@@ -13,29 +13,27 @@ import lombok.Setter;
 import java.util.List;
 
 public class GameService implements IGameService {
-    private GameRepository gameRepository;
+    private final GameRepository gameRepository;
     @Getter(AccessLevel.PROTECTED)
     @Setter(AccessLevel.PROTECTED)
     private GameEngine gameEngine;
 
-    public GameService(GameRepository gameRepository, GameEngine gameEngine){
+    public GameService(GameRepository gameRepository, GameEngine gameEngine) {
         this.gameRepository = gameRepository;
         this.gameEngine = gameEngine;
     }
 
 
-
-
     @Override
-    public List<GameDescription> getGames(){
+    public List<GameDescription> getGames() {
         return gameRepository.getAvailableGames();
     }
 
-    public GameDescription getDescriptionOfGameType(GameType gameType){
+    public GameDescription getDescriptionOfGameType(GameType gameType) {
         return gameRepository.getDescriptionOfGameType(gameType);
     }
 
-    public GameResult playGame(Play p){
+    public GameResult playGame(Play p) {
         return gameEngine.play(p);
     }
 }

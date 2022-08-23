@@ -12,10 +12,11 @@ public class TwoPlayersGameRulesEngine implements GameEngine {
 
     private final Map<PossiblePicksType, HashSet<PossiblePicksType>> possiblePicksRules;
 
-    public TwoPlayersGameRulesEngine(List<GamePick> possiblePicks){
+    public TwoPlayersGameRulesEngine(List<GamePick> possiblePicks) {
 
         possiblePicksRules = possiblePicks.stream().collect(Collectors.toMap(GamePick::getType, g -> g.getDefeats()));
     }
+
     public GameResult play(Play play) {
         Pick player1Pick = play.getPicks().get(0);
         Pick player2Pick = play.getPicks().get(1);
@@ -32,8 +33,9 @@ public class TwoPlayersGameRulesEngine implements GameEngine {
         }
 
     }
+
     private boolean defeats(PossiblePicksType pick, PossiblePicksType pick2) {
-        if(!possiblePicksRules.containsKey(pick)){
+        if (!possiblePicksRules.containsKey(pick)) {
             throw new RuntimeException("That pick is not possible in this game!");
         }
 

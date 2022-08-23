@@ -11,15 +11,17 @@ import java.util.Optional;
 @Repository
 public class GameRepository {
     List<GameDescription> games;
-    public GameRepository(){
+
+    public GameRepository() {
         GameDescription game = new GameDescription();
         game.setNumberOfPlayers(2);
         game.setDescriptionOfTheRules("This is the classic instance of the rock, paper, scissors game.");
-        game.setGameType(new GameType(1,"Classic picks rock paper scissors"));
+        game.setGameType(new GameType(1, "Classic picks rock paper scissors"));
         game.setPlayingEndpoint("/rock-paper-scissor/");
         games = Arrays.asList(game);
     }
-    public List<GameDescription> getAvailableGames(){
+
+    public List<GameDescription> getAvailableGames() {
         return games;
     }
 
@@ -27,13 +29,13 @@ public class GameRepository {
         return findGame(g);
     }
 
-    private GameDescription findGame(GameType gameType){
-           Optional<GameDescription> first = this.games.stream().filter(g -> g.getGameType().getId()== gameType.getId()).findFirst();
-           if(first.isPresent()){
-               return first.get();
-           } else {
-               throw new RuntimeException("That gametype is not available in this service");
-           }
-       }
+    private GameDescription findGame(GameType gameType) {
+        Optional<GameDescription> first = this.games.stream().filter(g -> g.getGameType().getId() == gameType.getId()).findFirst();
+        if (first.isPresent()) {
+            return first.get();
+        } else {
+            throw new RuntimeException("That gametype is not available in this service");
+        }
+    }
 
 }

@@ -5,10 +5,10 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class RockPaperScissorsGameDescription extends GameDescription{
+public class RockPaperScissorsGameDescription extends GameDescription {
     private List<GamePick> availablePicks;
 
-    public RockPaperScissorsGameDescription(GameDescription g){
+    public RockPaperScissorsGameDescription(GameDescription g) {
         this.setDescriptionOfTheRules(g.getDescriptionOfTheRules());
         this.setGameType(g.getGameType());
         this.setNumberOfPlayers(g.getNumberOfPlayers());

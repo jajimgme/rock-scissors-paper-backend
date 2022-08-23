@@ -6,5 +6,5 @@ import java.util.List;
 
 @Data
 public class Play {
-private List<Pick> picks;
+    private List<Pick> picks;
 }

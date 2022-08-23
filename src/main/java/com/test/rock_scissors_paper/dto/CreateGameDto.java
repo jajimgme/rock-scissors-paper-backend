@@ -1,7 +1,7 @@
 package com.test.rock_scissors_paper.dto;
 
-import com.test.rock_scissors_paper.domain.model.Player;
 import com.test.rock_scissors_paper.domain.model.GameType;
+import com.test.rock_scissors_paper.domain.model.Player;
 import lombok.Data;
 
 import java.util.List;

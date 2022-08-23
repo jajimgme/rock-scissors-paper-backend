@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface GameFactory {
 
-    public Game createGame(List<Player> players);
+    Game createGame(List<Player> players);
 }

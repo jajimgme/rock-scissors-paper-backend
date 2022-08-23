@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+
 @Service
-public class RockPaperScissorsClassicPicksFactory  {
+public class RockPaperScissorsClassicPicksFactory {
     public List<GamePick> getGamePicks() {
         List<GamePick> possibleGamePicks = Arrays.asList(createPaper(), createRock(), createScissors());
         return possibleGamePicks;

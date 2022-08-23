@@ -17,13 +17,14 @@ import java.util.List;
 public class GameController {
     @Autowired
     private IGameService gameService;
-    public GameController(GameService gameService){
+
+    public GameController(GameService gameService) {
         this.gameService = gameService;
     }
 
     @GetMapping
-    public ResponseEntity<List<GameDescription>> getAvailableGames(){
-    return new ResponseEntity<>(gameService.getGames(), HttpStatus.OK);
+    public ResponseEntity<List<GameDescription>> getAvailableGames() {
+        return new ResponseEntity<>(gameService.getGames(), HttpStatus.OK);
     }
 
 }

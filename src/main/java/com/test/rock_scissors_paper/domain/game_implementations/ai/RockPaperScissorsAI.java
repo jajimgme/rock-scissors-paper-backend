@@ -4,10 +4,10 @@ import com.test.rock_scissors_paper.domain.model.GamePick;
 
 import java.util.List;
 
-public class RockPaperScissorsAI implements GameAI{
-    private List<GamePick> availableGamePicks;
+public class RockPaperScissorsAI implements GameAI {
+    private final List<GamePick> availableGamePicks;
 
-    public RockPaperScissorsAI(List<GamePick> availableGamePicks){
+    public RockPaperScissorsAI(List<GamePick> availableGamePicks) {
         this.availableGamePicks = availableGamePicks;
     }
 

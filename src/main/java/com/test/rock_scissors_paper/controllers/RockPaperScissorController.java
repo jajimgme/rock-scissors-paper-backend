@@ -10,23 +10,24 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/rock-paper-scissor", produces = {"application/json"})
 public class RockPaperScissorController {
 
-    private RockPaperScissorsGameService gameService;
+    private final RockPaperScissorsGameService gameService;
 
-    public RockPaperScissorController(RockPaperScissorsGameService gameService){
+    public RockPaperScissorController(RockPaperScissorsGameService gameService) {
         this.gameService = gameService;
     }
+
     @GetMapping("/getGameDescription")
-    public ResponseEntity<RockPaperScissorsGameDescription> getGameDescription(GameType gameType){
+    public ResponseEntity<RockPaperScissorsGameDescription> getGameDescription(GameType gameType) {
         return new ResponseEntity<>(gameService.getDescriptionOfGameType(gameType), HttpStatus.OK);
     }
 
     @PostMapping("/play")
-    public ResponseEntity<GameResult> play(@RequestBody Play p){
+    public ResponseEntity<GameResult> play(@RequestBody Play p) {
         return new ResponseEntity<>(gameService.playGame(p), HttpStatus.OK);
     }
 
     @GetMapping("/getAIPick")
-    public ResponseEntity<GamePick> getAIPick(GameType type){
+    public ResponseEntity<GamePick> getAIPick(GameType type) {
         return new ResponseEntity<>(gameService.getAIGamePick(), HttpStatus.OK);
     }
 }
